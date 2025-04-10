@@ -12,6 +12,8 @@ test.c：
 
 ```c
 // gcc -o test test.c
+//GCC 是一个开源的编译器集合，最初用于编译 C 语言代码，后来扩展支持多种编程语言
+//gcc [选项] [输入文件]
 #include <unistd.h>
 
 int main()
@@ -19,7 +21,7 @@ int main()
     char input[8] = {0};
     read(STDIN_FILENO, input, 8);
     if (input[0] == 'A' && input[1] == 'B') // (1)
-        *((unsigned int *)0) = 0xdeadbeef; // (2)
+        *((unsigned int *)0) = 0xdeadbeef; // (2)  #非法内存访问
     write(STDOUT_FILENO, input, 8);
     return 0;
 }
