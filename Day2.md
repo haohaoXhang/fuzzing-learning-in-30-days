@@ -1,35 +1,5 @@
 # [Day 2] Fuzzing 內部架構
-
-
-
-簡單介紹一下 **basic block**。程式在執行時會因為不同的條件執行不同的程式碼，而不同條件主要就是以 `if` 來定義，以下方程式碼為例子，當 `a == 1 && b == 2` 條件滿足時會印出 `"condition 1"`，除此之外皆印出 `"condition 2"`。
-
-```c
-if (a == 1 && b == 2)
-	puts("condition 1");
-else
-    puts("condition 2");
-```
-
-
-
-若將執行邏輯畫成圖會像下圖，而通常這種表示程式執行流程的圖就稱作 **control flow graph** (CFG)。每個方格都代表一個 basic block，被劃分成同塊 basic block 的程式碼一定會**從第一條 instruction 開始執行**，不會有其他程式碼透過  branch instruction 到達 basic block 中第一條之外的 instruction，並且保證在同一塊 basic block 內的 instruction 一定都會被執行到。
-
-![](images/2-0.png)
-
-
-
-下圖為使用工具 (IDA) 產生出來的 instruction level 的 CFG，對照上述 basic block 的說明即可暸解：
-
-![](images/2-1.png)
-
-
-
----
-
-
-
-回歸正題，整個 fuzzing 流程大致可以拆成三個 components，分別為： 1. seed selection、2. mutation、3. coverage。
+整個 fuzzing 流程大致可以拆成三個 components，分別為： 1. seed selection、2. mutation、3. coverage。
 
 
 
