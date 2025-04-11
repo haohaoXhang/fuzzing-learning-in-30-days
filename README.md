@@ -36,3 +36,6 @@
 基本上文章內容極少參考第二手資料，如果內容有誤就代表我還沒完全理解，麻煩通知我一聲或是開 issue 討論，謝謝！
 
 > 鐵人賽連結： https://ithelp.ithome.com.tw/users/20151153/ironman/5164
+> 参考资料
+> https://www.bilibili.com/video/BV1ZM4m1R7gZ/?spm_id_from=333.1391.0.0&vd_source=1d61484f4654464ecee2f16fd2b79e8d
+> https://lidaxian121.github.io/posts/fuzz/
