@@ -84,20 +84,22 @@ fuzzer.py:
 import subprocess
 import random
 
-target = './test'
+target = './test'   #target：目标程序的路径，这里假设目标程序是当前目录下的 test 文件
 inps = ['A', 'B']
 count = 1
 
 while True:
     inp = inps[0] # (1)
-    inp += random.choice(['A', 'B', 'C']) # (2)
-    del inps[0]
+    inp += random.choice(['A', 'B', 'C']) # (2) #在基础输入后面追加一个随机字符（A、B 或 C）。
+    del inps[0]  #删除 inps 列表中的第一个元素，避免重复使用。
     count += 1
 
     try:
+        #使用 subprocess.run 运行目标程序 target，将生成的输入字符串 inp 作为标准输入传递给目标程序。
         comp = subprocess.run([target], input=inp.encode(), capture_output=True, check=True)
         if comp.stdout != b'':
             inps.append(inp) # (3)
+	#如果目标程序正常运行且有输出（comp.stdout != b''），将当前输入字符串追加到 inps 列表中，以便后续重新测试（(3)）。
     except subprocess.CalledProcessError:
         print(f"bug found with input: '{inp}'")
         break
