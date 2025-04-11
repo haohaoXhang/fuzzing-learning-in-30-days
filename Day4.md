@@ -16,7 +16,7 @@ AFL 對於 target source code 的處理又可以拆成： 1. compile、2. assemb
 
 ```bash
 cd ~
-git clone https://github.com/google/AFL
+git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd ~/AFL
 make
 ```
