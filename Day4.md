@@ -35,17 +35,17 @@ make
 之後要跑 AFL 之前需要先編譯你的 target file，在此以 test.c 為例，參考註解說明執行以下命令：
 
 ```bash
-# compile source code
+# 1.编译生成可执行文件test
 ~/AFL/afl-gcc -o test test.c
 
-# generate seed
+# 2.generate seed
 mkdir in && echo "seed" > in/seed
 
-# setup environment
+# 3.setup environment
 echo core | sudo tee /proc/sys/kernel/core_pattern
 echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-# run fuzzer
+# 4.运行可执行文件，输入为in文件夹，输出到out文件夹，./test 是（1）生成的可执行文件。
 ~/AFL/afl-fuzz -i in -o out ./test
 ```
 
