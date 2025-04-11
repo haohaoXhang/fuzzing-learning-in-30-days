@@ -20,7 +20,7 @@ git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd ~/AFL
 #make仅编译，编译源代码并生成可执行文件
 make
-# sudo make install 后，install：将编译生成的可执行文件和相关工具安装到系统的标准路径中
+sudo make install #后，install：将编译生成的可执行文件和相关工具安装到系统的标准路径中
 #afl-fuzz --version  监测是否安装成功
 ```
 
