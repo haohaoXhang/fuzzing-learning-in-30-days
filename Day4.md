@@ -38,7 +38,7 @@ make
 # 1.编译生成可执行文件test
 ~/AFL/afl-gcc -o test test.c
 
-# 2.generate seed
+# 2.创建目录：首先创建一个名为 in 的目录。创建文件并写入内容：在目录 in 中创建一个名为 seed 的文件，并将字符串 "seed" 写入该文件。
 mkdir in && echo "seed" > in/seed
 
 # 3.setup environment
